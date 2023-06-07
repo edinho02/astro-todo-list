@@ -4,12 +4,18 @@
 </div>
 
 <script>
-  const value = (document.getElementById('list-input-value') as HTMLInputElement);
-  const btn = document.getElementById('list-input-btn');
+  const inputValue = (document.getElementById('list-input-value') as HTMLInputElement);
+  const btn = document.getElementById('list-input-btn') as HTMLElement;
   
-  const listContent = document.getElementById('list-content');
+  const listContent = document.getElementById('list-content') as HTMLElement;
   
-  const addListElement = function (value: string) {
+  const addListElement = function () {
+    const value = inputValue.value;
+
+    if (!value) {
+      return;
+    }
+
     const li = document.createElement('div');
     li.classList.add('flex', 'flex-row', 'item', 'text-lg', 'bg-neutral-100', 'mt-2', 'rounded-md', 'py-3', 'px-3')
 
@@ -23,7 +29,8 @@
 
     const label = document.createElement('label');
     label.setAttribute('for', liId);
-    label.classList.add('pl-3');
+    label.setAttribute('style', 'overflow: hidden; text-overflow: ellipsis;')
+    label.classList.add('px-3');
     label.innerText = value;
 
     const span = document.createElement('span');
@@ -34,15 +41,18 @@
     li.appendChild(label);
     li.appendChild(span);
 
-    if (listContent) {
-      listContent.prepend(li)
-    }
+    listContent.prepend(li)
+
+    inputValue.value = '';
   }
 
-  if (btn) {
-    btn.onclick = _ => {
-      addListElement(value.value)
-      value.value = '';
+  inputValue.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') {
+      return;
     }
-  }
+
+    addListElement()
+  })
+
+  btn.onclick = addListElement
 </script>

@@ -1,15 +1,18 @@
 ---
 import Head from '../components/core/Head.astro';
+import Footer from '../components/core/Footer.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-zinc-900">
 	<Head />
 
-	<body class="bg-zinc-900">
+	<body>
     <main>
       <slot />
     </main>
+
+    <Footer />
 	</body>
 </html>
 
@@ -20,12 +23,15 @@ import Head from '../components/core/Head.astro';
     height: 100%;
 	}
   body {
+    display: flex;
+    flex-direction: column;
     height: 100%;
   }
 
 	main {
 		margin: auto;
 		padding: 1.5rem;
+    flex-grow: 1;
 		max-width: 60ch;
 	}
 	:root {
