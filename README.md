@@ -2,5 +2,5 @@
 A simple todo list made with Aspro
 
 # Preview
-![image](https://github.com/edinho02/astro-todo-list/assets/62767339/4cafa7b4-ec91-4ceb-8b8a-657088af1c3a)
+![image](https://github.com/edinho02/astro-todo-list/assets/62767339/9a604a4a-7728-4fef-aeda-bd25d1389778)
 
