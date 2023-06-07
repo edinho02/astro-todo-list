@@ -1,0 +1,48 @@
+<div class="flex flex-row flex-nowrap text-stone-900 mt-8">
+  <input id="list-input-value" type="text" class="block w-full text-lg bg-neutral-100 hover:bg-neutral-100 focus:bg-neutral-100 outline-none rounded-md p-3"/>
+  <button id="list-input-btn" class="rounded-md text-3xl bg-neutral-200 bg-sky-400 hover:bg-cyan-500 px-5 ml-2">+</button>
+</div>
+
+<script>
+  const value = (document.getElementById('list-input-value') as HTMLInputElement);
+  const btn = document.getElementById('list-input-btn');
+  
+  const listContent = document.getElementById('list-content');
+  
+  const addListElement = function (value: string) {
+    const li = document.createElement('div');
+    li.classList.add('flex', 'flex-row', 'item', 'text-lg', 'bg-neutral-100', 'mt-2', 'rounded-md', 'py-3', 'px-3')
+
+    const liId = new Date().getTime().toString();
+    
+    const input = document.createElement('input');
+    input.setAttribute('type', 'checkbox');
+    input.setAttribute('name', liId);
+    input.setAttribute('id', liId);
+    input.classList.add('mt-1');
+
+    const label = document.createElement('label');
+    label.setAttribute('for', liId);
+    label.classList.add('pl-3');
+    label.innerText = value;
+
+    const span = document.createElement('span');
+    span.classList.add('aux-label', 'italic');
+    span.innerText = 'Finalizado';
+
+    li.appendChild(input);
+    li.appendChild(label);
+    li.appendChild(span);
+
+    if (listContent) {
+      listContent.prepend(li)
+    }
+  }
+
+  if (btn) {
+    btn.onclick = _ => {
+      addListElement(value.value)
+      value.value = '';
+    }
+  }
+</script>

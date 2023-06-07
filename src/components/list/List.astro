@@ -1,0 +1,39 @@
+<div id="list-content" class="mt-10">
+  <div class="flex flex-row item text-lg bg-neutral-100 mt-2 rounded-md py-3 px-3">
+    <input type="checkbox" id="scales" name="scales" class="mt-1">
+    <label for="scales" class="pl-3">Adicionar um item a lista ;)</label>
+    <span class="aux-label italic">Finalizado</span>
+  </div>
+</div>
+
+<style is:global>
+  .item > input {
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  .item > .aux-label {
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: green;
+    margin-left: auto;
+    margin-right: 4px;
+  }
+
+  .item:has(> input:checked) {
+    border: none;
+    background: rgb(187, 187, 187);
+  }
+
+  .item:has(> input:checked) > label {
+    text-decoration: line-through;
+    color: rgb(12, 43, 0);
+  }
+  .item:has(> input:checked) > .aux-label {
+    display: block;
+  }
+</style>
