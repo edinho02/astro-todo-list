@@ -9,10 +9,12 @@ import Footer from '../components/core/Footer.astro';
 
 	<body>
     <main>
-      <slot />
-    </main>
+      <div class="body-content">
+        <slot />
+      </div>
       
-    <Footer />
+      <Footer />
+    </main>
 	</body>
 </html>
 
@@ -28,12 +30,13 @@ import Footer from '../components/core/Footer.astro';
     height: 100%;
   }
 
-	main {
+	.body-content {
 		margin: auto;
 		padding: 1.5rem;
     flex-grow: 1;
 		max-width: 60ch;
 	}
+  
 	:root {
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
